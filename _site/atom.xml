@@ -1,0 +1,853 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Traz's notes</title>
+ <link href="http://traz.github.com/atom.xml" rel="self"/>
+ <link href="http://traz.github.com/"/>
+ <updated>2013-04-03T12:34:49+11:00</updated>
+ <id>http://traz.github.com</id>
+ <author>
+   <name>Traz</name>
+ </author>
+
+ 
+ <entry>
+   <title>PRY colorized prompt</title>
+   <link href="http://traz.github.com/posts/Pry-prompt"/>
+   <updated>2013-03-26T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/Pry-prompt</id>
+   <content type="html">&lt;h3&gt;The solution, now !&lt;/h3&gt;
+
+&lt;p&gt;After few hours of digging around several solution, I&#39;ve finally have a working colorized prompt for PRY !*&lt;/p&gt;
+
+&lt;p&gt;So the final solution now : (puts those lines in your &lt;em&gt;.pryrc&lt;/em&gt; at you $HOME)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+              &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;&amp;quot;[&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0;32m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0;33m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view_clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;gt; &amp;quot;&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+              &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;&amp;quot;[&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[1;32m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[1;33m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view_clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;* &amp;quot;&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Explications&lt;/h3&gt;
+
+&lt;p&gt;First the color code :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:red&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;31m&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:green&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;32m&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:yellow&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;33m&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:blue&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;34m&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:purple&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;35m&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;:cyan&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;36m&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The color format is &lt;code&gt;\e[0;31m&lt;/code&gt; for a red and &lt;code&gt;\e[1;31m&lt;/code&gt; for a darkess red, ending with a &lt;code&gt;\e[0m&lt;/code&gt; sequence.&lt;/p&gt;
+
+&lt;p&gt;But you have to escape those special caracters because the readline library doesn&#39;t count well the line lenght. So this why we got a &lt;code&gt;\001&lt;/code&gt; in starting and a &lt;code&gt;\001&lt;/code&gt; in finish.&lt;/p&gt;
+
+&lt;h3&gt;Further reading&lt;/h3&gt;
+
+&lt;p&gt;Pry prompt can change in realtime in the pry shell whith the &lt;code&gt;_pry_&lt;/code&gt; variable, ie :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;_pry_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;gt; &amp;quot;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;_pry_&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:DEFAULT_PROMPT&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check thoses links :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pry/pry/wiki/Customization-and-configuration#runtime-customization&quot;&gt;Pry customization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://github.com/pry/pry/issues/493&quot;&gt;Pry issue on colorizing the prompt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8992330/why-does-my-irb-prompt-with-ansi-color-codes-mess-up-page-up-down-behavior-with&quot;&gt;Stakoverflow discussion about escaping sequence&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/8806643/colorized-output-breaks-linewrapping-with-readline/8916332#8916332&quot;&gt;Another stakeoverflow about readline and color&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://superuser.com/questions/301353/escape-non-printing-characters-in-a-function-for-a-bash-prompt&quot;&gt;The right explication for the escaping sequence in readline&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>ConEmu</title>
+   <link href="http://traz.github.com/posts/ConEmu"/>
+   <updated>2013-03-25T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/ConEmu</id>
+   <content type="html">&lt;h3&gt;Console2 reboot&lt;/h3&gt;
+
+&lt;p&gt;I&#39;ve used for long time the very good &lt;a href=&quot;http://sourceforge.net/projects/console/&quot;&gt;Console2&lt;/a&gt;. But i&#39;ve discovered last month a russian programmer who has build some really good stuff !&lt;/p&gt;
+
+&lt;p&gt;So first, go to &lt;a href=&quot;http://code.google.com/p/conemu-maximus5/&quot;&gt;ConEmu&lt;/a&gt; and install it (pick the dev build, it has some good new features and work well !)&lt;/p&gt;
+
+&lt;h3&gt;ConEmu basic configuration&lt;/h3&gt;
+
+&lt;p&gt;ConEmu can be fine tuned with a lot of configuration possibility. In the setting :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Main / Appearance : check the &lt;em&gt;quake style&lt;/em&gt; and &lt;em&gt;auto hide on focus&lt;/em&gt; for having a nice pop up console, check &lt;em&gt;enhance progressbars&lt;/em&gt; for auto hidding progressbars&lt;/li&gt;
+&lt;li&gt;Features : check &lt;em&gt;inject conemu&lt;/em&gt; and &lt;em&gt;ansi xterm 256 colors&lt;/em&gt; for highlighting mode&lt;/li&gt;
+&lt;li&gt;Keys &amp;amp; Macro / Mark &amp;amp; Paste : check all the box from the &lt;em&gt;select text with mouse&lt;/em&gt; and select the &lt;em&gt;paste&lt;/em&gt; action for the right button (mode &lt;em&gt;auto&lt;/em&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Move arround and test !&lt;/p&gt;
+
+&lt;h3&gt;ConEmu Task&lt;/h3&gt;
+
+&lt;p&gt;You can define multiple standard task in &lt;em&gt;startup/tasks&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;I&#39;ve created a first simple :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;taskname : start&lt;/li&gt;
+&lt;li&gt;task parameters :&lt;/li&gt;
+&lt;li&gt;command : &lt;code&gt;cmd -new_console:d:C:\Dev\home&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;It&#39;s the most important part. The format of the macro command is :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;program-name -new_console:options-console parameter-for-the-program
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Take a look at the about box for remenber the options :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;-new_console[:switches]
+  or
+-cur_console[:switches]
+   a - RunAs shell verb (as Admin on Vista+, login/passw in Win2k and WinXP)
+   b - Create background tab
+   c - force enable &#39;Press Enter or Esc to close console&#39; (default)
+   d:&amp;lt;dir&amp;gt; - specify working directory, MUST BE LAST or single OPTION
+   h&amp;lt;height&amp;gt; - i.e., h0 - turn buffer off, h9999 - switch to 9999 lines
+   i - don&#39;t inject ConEmuHk into starting process
+   n - disable &#39;Press Enter or Esc to close console&#39;
+   o - don&#39;t enable &#39;Long console output&#39; when starting command from Far Manager
+   r - run as restricted user
+   s[&amp;lt;SplitTab&amp;gt;T][&amp;lt;Percents&amp;gt;](H|V) - run new console in a split
+   t:tabname - rename new created tab, MUST BE LAST or signle OPTION
+   u - ConEmu choose user dialog
+   u:&amp;lt;user&amp;gt;:&amp;lt;pwd&amp;gt; - specify user/pwd in args, MUST BE LAST or signle OPTION
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Simples examples&lt;/h3&gt;
+
+&lt;p&gt;Just add a task with : &lt;code&gt;cmd&lt;/code&gt; in the third input (&#39;commands ...&#39;) with a title (first input). You can now lanch a DOS shell simply.&lt;/p&gt;
+
+&lt;p&gt;Next step : launch  the bash shell (sh.exe is en the PATH) : &lt;code&gt;sh -login -i&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;And for a Git shell (not in my path) : &lt;code&gt;c:\dev\git\bin\sh.exe -login -i&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;If you want to specify the starting directory, you have to use the -new_console switch : &lt;code&gt;c:\dev\git\bin\sh.exe -cur_console:d:C:\www\github\ -login -i&lt;/code&gt; for example.&lt;/p&gt;
+
+&lt;h3&gt;Starting a batch file in a new console&lt;/h3&gt;
+
+&lt;p&gt;Depending on each program, for bash it&#39;s the swith &lt;code&gt;-c&lt;/code&gt;.
+So, assume i want to launch a Ruby pry console from the bash shell : &lt;code&gt;sh -new_console:d:C:\www -l -i -c &quot;pry&quot;&lt;/code&gt;.
+You can do the same for a rails console, a rails server, a jekyll server ...&lt;/p&gt;
+
+&lt;h3&gt;Launch several windowed consoles&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;c:\dev\git\bin\sh.exe -cur_console:d:C:\www\github\traz.github.com -login -i
+sh.exe -cur_console:s1TH:d:C:\www\github\traz.github.com -login -i -c &quot;jekyll serve&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On the first line, I launch a git bash shell (whith full route besause it&#39;s not in my PATH) with option -login -i, with a starting directory specified (:d switch)&lt;/p&gt;
+
+&lt;p&gt;On the second line, I launch the Jekyll local server and with the switch &lt;code&gt;s1TH&lt;/code&gt; for (s)eparing the current (1)st one console in 2 (H)orizontal windows.&lt;/p&gt;
+
+&lt;p&gt;The &lt;code&gt;&amp;gt;&lt;/code&gt; caracter select which console is active.&lt;/p&gt;
+
+&lt;p&gt;So when the task is launch, I&#39;ve got my Git shell and my local server up.&lt;/p&gt;
+
+&lt;p&gt;Another example with Rails :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;sh -cur_console:d:C:\www\red -l -i -c &quot;rails console&quot;
+c:\dev\git\bin\sh.exe -cur_console:s1TH:d:C:\www\red -login -i
+sh -cur_console:s2TV:d:C:\www\red -login -i -c &quot;rails server&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In this one, I&#39;ve a got a PRY rails console (check the &#39;pry-rails&#39; gem in gemfile), a Git shell, and the rails server up.&lt;/p&gt;
+
+&lt;h3&gt;Attach &amp;amp; Inside ...&lt;/h3&gt;
+
+&lt;p&gt;Lasts words : You can attach a program in ConEmu ... try it, it&#39;s surprising on the first time :) But it extend the tasks possibilities :&lt;/p&gt;
+
+&lt;p&gt;Now in a new task, just put &lt;code&gt;&quot;C:\Program Files\Sublime Text 2\sublime_text.exe&quot;&lt;/code&gt; ... and Yes ! you&#39;ve got Sublime Text IN a tab console, working perfectly :) ... you can test with other programs :)&lt;/p&gt;
+
+&lt;p&gt;And for finish, you can do (it&#39;s a testing feature I assume, there some nasty behaviours) the exact oposite : integrate ConEmu in a Windows Explorer ! First, register ConEmu in the Explorer context menu (it&#39;s in tab Features / Integration in ConEmu), and second, right click in the explorer on ConMenu Inside :)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;A big thanks again to the programmer of ConEmu !!!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;Additionals informations : check :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://code.google.com/p/conemu-maximus5/&quot;&gt;http://code.google.com/p/conemu-maximus5/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://superuser.com/questions/tagged/conemu&quot;&gt;http://superuser.com/questions/tagged/conemu&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/tagged/conemu&quot;&gt;http://stackoverflow.com/questions/tagged/conemu&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Dr Jekyll and Github</title>
+   <link href="http://traz.github.com/posts/jekyll_and_pygments"/>
+   <updated>2013-03-20T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/jekyll_and_pygments</id>
+   <content type="html">&lt;h3&gt;Markdown : choising the right one&lt;/h3&gt;
+
+&lt;p&gt;So we&#39;ve got rdiscount, maruku, redcarpet, redcloth and kramdown ... (look at &lt;a href=&quot;https://www.ruby-toolbox.com/categories/markup_processors&quot;&gt;https://www.ruby-toolbox.com/categories/markup_processors&lt;/a&gt;) The last one, kramdown, seem to be the most active with lot of nice features (simplified code declaration, tables, ...).&lt;/p&gt;
+
+&lt;p&gt;But, after few try, the configuration Windows + Ruby 2.0 + Jekyll doesn&#39;t work with any of them (problem with encoding : &quot;incompatible encoding regexp match (UTF-8 regexp with CP850 string)&quot; ... i have to look further).&lt;/p&gt;
+
+&lt;p&gt;Still work : the old rdiscount ... Ok.&lt;/p&gt;
+
+&lt;h3&gt;Jekyll : choosing a theme.&lt;/h3&gt;
+
+&lt;p&gt;After few digs, i choose this one &lt;a href=&quot;https://github.com/caarlos0/up&quot;&gt;https://github.com/caarlos0/up&lt;/a&gt; : it&#39;s simple, doesn&#39;t have some features (tags, articles) but for the starting, it feet.&lt;/p&gt;
+
+&lt;p&gt;Cloning it, changing the configuration and it&#39;s ok (it come with Disqus, Gauge, Google analytic, ... with a centre configuration in &lt;em&gt;_config.yml&lt;/em&gt;).&lt;/p&gt;
+
+&lt;h3&gt;Highlighting some code&lt;/h3&gt;
+
+&lt;p&gt;With pygments.rb. So : install the gem &lt;code&gt;gem i pygments.rb&lt;/code&gt; and ... install Python ! Tried with Python 3, but Pygments doesn&#39;t work with it (look at issues on Github), so installed Python 2.7 : work with no error, some hatml class generated ... missing a css !!&lt;/p&gt;
+
+&lt;p&gt;Digging again and found this solution : &lt;a href=&quot;http://www.stehem.net/2012/02/14/how-to-get-pygments-to-work-with-jekyll.html&quot;&gt;http://www.stehem.net/2012/02/14/how-to-get-pygments-to-work-with-jekyll.html&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;For generating the css file, go to your pygments.rb gem folder &lt;em&gt;C:\Ruby200\lib\ruby\gems\2.0.0\gems\pygments.rb-0.4.2\vendor\pygments-main&lt;/em&gt; and launch :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;pygmentize -S default -f html &amp;gt; pygments.css
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Copy the css file into your jekyll css directory, declare it in the layout, &lt;code&gt;&amp;lt;link href=&quot;/css/pygments.css&quot; rel=&quot;stylesheet&quot;&amp;gt;&lt;/code&gt; and this time all is done :)&lt;/p&gt;
+
+&lt;p&gt;For highlighting some code, you must embrace him with a &lt;code&gt;{ % highlight lexer_name % }&lt;/code&gt; starting block and finish it with a &lt;code&gt;{ % endhighlight % }&lt;/code&gt; block (remove the space betwenn { or } and % for proper work). You&#39;ve got plenty of lexer : ruby, irb, bash, bat ... check &lt;a href=&quot;http://pygments.org/docs/lexers/&quot;&gt;http://pygments.org/docs/lexers/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Feel free to look in deep at this github repository.&lt;/p&gt;
+
+&lt;h3&gt;Some Git&lt;/h3&gt;
+
+&lt;p&gt;Before sending your pages to Hithub, check them in local with &lt;code&gt;jekyll serve&lt;/code&gt; : if there are some syntax error, you&#39;ll find them quickly (on other side, the page with error isn&#39;t displayed and there are no warning ...)
+Simply :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git add .
+git comit -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;my commit&amp;#39;&lt;/span&gt;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Better irb : PRY !</title>
+   <link href="http://traz.github.com/posts/Pry"/>
+   <updated>2013-03-12T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/Pry</id>
+   <content type="html">&lt;h3&gt;Better IRB - a PRY test&lt;/h3&gt;
+
+&lt;p&gt;Install &lt;code&gt;gem i pry&lt;/code&gt;. When you launch it, you&#39;ve warned by some readline missing gem. But take a look at &lt;a href=&quot;https://github.com/luislavena/rb-readline/issues/81&quot;&gt;this bug&lt;/a&gt; ... the new version of rb-readline (0.5.pre) is not avaible (&lt;code&gt;gem list -r rb-readline -a&lt;/code&gt;). So :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;clone the depot &lt;code&gt;git clone https://github.com/luislavena/rb-readline.git&lt;/code&gt; somewhere&lt;/li&gt;
+&lt;li&gt;just launch &lt;code&gt;ruby setup.rb&lt;/code&gt; in this cloned directory (you can drop the clone after, and don&#39;t install the gem for now, you&#39;ll get some nasty bugs ...) : some fresh readline library will be copied on your ruby 2.0 installation.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;And it&#39;s done (exept for the warning &quot;DL depriciated ...&quot;). Don&#39;t bother for the win32console message, your ANSICON is working (test it : &lt;code&gt;test-ansi&lt;/code&gt; in your pry shell)&lt;/p&gt;
+
+&lt;h3&gt;PRY - basic stuff&lt;/h3&gt;
+
+&lt;p&gt;First, don&#39;t forget tab and double tab completion !&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;help&lt;/code&gt; for a list of common command&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;wtf?&lt;/code&gt; ... for the last plantage :)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cd Array&lt;/code&gt; change the binding for Array class &lt;code&gt;ls&lt;/code&gt; list method from the binding &lt;code&gt;cd ..&lt;/code&gt; back to the main binding (take a look further at &lt;em&gt;looksee gem&lt;/em&gt; also) and &lt;code&gt;nesting&lt;/code&gt;for view where we&#39;re from ; very usefull for Rails &lt;a href=&quot;http://railscasts.com/episodes/280-pry-with-rails?view=asciicast&quot;&gt;railscast&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;simple-prompt&lt;/code&gt; for toggle prompt&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hist -tail 5&lt;/code&gt; : list last commands ; &lt;code&gt;hist --grep try&lt;/code&gt; for listing command with try and &lt;code&gt;hist --replay 70..72&lt;/code&gt; for replaying lines 70 to 72 (work fine with just one line too)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;.ls .pwd .mkdir ...&lt;/code&gt; : you can access directly to all bash / dos command with a dot prefix ; another example (from pry wiki page) how to use ruby variables in shell command :&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;    pry(main)&amp;gt; x = &amp;quot;[mM]&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    =&amp;gt; &amp;quot;[mM]&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    pry(main)&amp;gt; .ls | grep #{x}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;find-method history&lt;/code&gt; : to finb a method declared in charged gems, add &lt;code&gt;-c&lt;/code&gt; arg option to see who&#39;s calling this method&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat GemFile -l -s 10&lt;/code&gt; : show the file whith -l line number, starting from -s the 10th line. Remember you&#39;re under some improved cat command for navigation arround the file (q for quit, ... )&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;gem-cd rails&lt;/code&gt; : the gem-cd command change the directory directly to the gem&#39;s one.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;__out[23]__&lt;/code&gt; : use the output result from the 23th command (&lt;code&gt;__in[23]__&lt;/code&gt; for the input command)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;edit myfile.rb&lt;/code&gt; launch your editor ; now when you test ie&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;hello&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;hi !&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;  you can use &lt;code&gt;edit hello&lt;/code&gt;for invoking your editor upon your method, or just &lt;code&gt;edit -t&lt;/code&gt; for invoking a temp file&lt;/p&gt;
+
+&lt;h3&gt;Pry Plugins&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;gem i &lt;span class=&quot;s1&quot;&gt;&amp;#39;pry-theme&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and in &lt;em&gt;.pryrc&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;theme&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;railscasts&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;you can change on the fly in Pry with &lt;code&gt;pry-theme try _themename_&lt;/code&gt;
+Note that some theme are in 256 colors ... and they don&#39;t work well with windows, so no railscast theme running for the moment ...&lt;/p&gt;
+
+&lt;h3&gt;Configure Rails with Pry&lt;/h3&gt;
+
+&lt;p&gt;Install the gem in the &lt;em&gt;gemfile&lt;/em&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;gem i &lt;span class=&quot;s1&quot;&gt;&amp;#39;pry-rails&amp;#39;&lt;/span&gt;, :group &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&amp;gt;development
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Usage :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;routes&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;--&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;grep&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;new&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;show&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;-&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Looksee gem&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;gem i looksee
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;in &lt;em&gt;.pryrc&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;require &#39;looksee&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usage :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;gt;[].ls
+&amp;gt;[].ls /^to/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;My .pryrc&lt;/h3&gt;
+
+&lt;p&gt;From several sources. I&#39;ve try to colorize the prompt, but i still have a got a small bug.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;auto_indent&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;color&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;editor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;vim&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;history&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;~/pry_history&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:before_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:say_hi_traz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Hi Traz !&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;Ruby&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RUBY_VERSION&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;hooks&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;add_hook&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:after_session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:say_bye_traz&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;bye-bye Traz !&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n\n&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+ 
+&lt;span class=&quot;c1&quot;&gt;# color = {&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :red =&amp;gt; &amp;quot;31m&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :green =&amp;gt; &amp;quot;32m&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :yellow =&amp;gt; &amp;quot;33m&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :blue =&amp;gt; &amp;quot;34m&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :purple =&amp;gt; &amp;quot;35m&amp;quot;,&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# :cyan =&amp;gt; &amp;quot;36m&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# }&lt;/span&gt;
+
+&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;
+              &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;&amp;quot;[&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0;32m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0;33m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view_clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;gt; &amp;quot;&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+              &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+                    &lt;span class=&quot;s2&quot;&gt;&amp;quot;[&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;input_array&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;size&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[1;32m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;prompt_name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[1;33m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view_clip&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;target_self&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\001\e&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;[0m&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\002&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;:&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;unless&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;nest_level&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zero?&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;* &amp;quot;&lt;/span&gt;
+                   &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+              &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;rubygems&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;looksee&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# theme on win work only with 8 and 16 colors&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Pry.config.theme = &amp;quot;railscasts&amp;quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;awesome_print&amp;#39;&lt;/span&gt; 
+  &lt;span class=&quot;no&quot;&gt;AwesomePrint&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pry!&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#Pry.config.print = proc { |output, value| output.puts value.ai }&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoadError&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;err&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;no awesome_print :(&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;# require &amp;#39;wirble&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Wirble.init&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;# Wirble.colorize&lt;/span&gt;
+
+
+
+&lt;span class=&quot;k&quot;&gt;begin&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;hirb&amp;#39;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;rescue&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;LoadError&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Missing goodies, bummer&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+ 
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;defined?&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;Hirb&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# Dirty hack to support in-session Hirb.disable/enable&lt;/span&gt;
+  &lt;span class=&quot;ss&quot;&gt;Hirb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;instance_eval&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;enable_output_method&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@output_method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;true&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;
+      &lt;span class=&quot;ss&quot;&gt;Hirb&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:View&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;view_or_page_output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:DEFAULT_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   
+    &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;disable_output_method&lt;/span&gt;
+      &lt;span class=&quot;no&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;config&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;proc&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;|&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;|&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;Pry&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:DEFAULT_PRINT&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;call&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;output&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;vi&quot;&gt;@output_method&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kp&quot;&gt;nil&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+   
+  &lt;span class=&quot;no&quot;&gt;Hirb&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;enable&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Shells  (Mingw / Msys) : DevKit Git</title>
+   <link href="http://traz.github.com/posts/DevKit-and-Git"/>
+   <updated>2013-03-11T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/DevKit-and-Git</id>
+   <content type="html">&lt;h3&gt;Shells versions&lt;/h3&gt;
+
+&lt;p&gt;Once you&#39;d installed the basics, you&#39;ve got 2 shells : one on &lt;em&gt;/devkit&lt;/em&gt; and one on &lt;em&gt;/git&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;It may cause some conflit (differents version, different tools ...). So, i choose to drop the Git shell from th ePATH environment variable (&lt;em&gt;c:/dev/git/bin&lt;/em&gt;) but keep the path for git command (&lt;em&gt;c:/dev/git/cmd&lt;/em&gt;) : you can run the both shell (the git one can have autocompletion on git command, plus a nice PS1), but the Devkit shell is the default one.&lt;/p&gt;
+
+&lt;h3&gt;Shell personnalisation&lt;/h3&gt;
+
+&lt;p&gt;On Windows you&#39;ve got a standard home path, but it&#39;s too easy to becom a piece of trash with other win programs ...&lt;/p&gt;
+
+&lt;p&gt;So i&#39;d set up a new home directory for all bash shell : &lt;em&gt;c:/dev/home&lt;/em&gt;, and puts some modification on profile file from the both shell (&lt;em&gt;c:/dev/devkit/etc/profile&lt;/em&gt; and &lt;em&gt;c:/dev/git/etc/profile&lt;/em&gt;)&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;c:/dev/home&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;HISTFILE&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;/.bash_history
+&lt;span class=&quot;nv&quot;&gt;HOME&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;$(cd &amp;quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$HOME&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot; ; pwd)&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Chek also &lt;em&gt;/etc/fstab&lt;/em&gt; for some personnal mount.&lt;/p&gt;
+
+&lt;h3&gt;VI / VIM / GVIM&lt;/h3&gt;
+
+&lt;p&gt;VIM is usefull with quick simple edit, but is not bundle with DevKit (only whith Git). So go to the &lt;a href=&quot;http://www.vim.org&quot;&gt;VIM web site&lt;/a&gt;, download and install it (as usual, in c:/dev/...). It put some .BAT file directly under c:/windows ... but thoses aren&#39;t accessible when you run your shell (only under DOS prompt). So, just add &lt;em&gt;c:/dev/vim/vim73&lt;/em&gt; to your PATH variable, and check it :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;sh -l -i
+vim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Starting Git</title>
+   <link href="http://traz.github.com/posts/Git"/>
+   <updated>2013-03-10T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/Git</id>
+   <content type="html">&lt;h3&gt;Create your fist local depot&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;c:
+mkdir www
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;www
+mkdir red
+&lt;span class=&quot;nb&quot;&gt;cd &lt;/span&gt;red
+git init
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Some command :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git remote -v &lt;span class=&quot;c&quot;&gt;# list dépots&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Create a new Rails 4 app :&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;&lt;span class=&quot;nb&quot;&gt;cd&lt;/span&gt; /c/www
+rails new red -B  &lt;span class=&quot;c&quot;&gt;# don&amp;#39;t check the gem library now&lt;/span&gt;
+bundle check
+bundle install --local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;And first commit in Git&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git status
+git add --all
+git status
+git commit -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;initial commit, rails empty&amp;#39;&lt;/span&gt;
+git tag v0.0 -m &lt;span class=&quot;s1&quot;&gt;&amp;#39;initial version&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rails 4, Ruby 2.0 and SQLite3</title>
+   <link href="http://traz.github.com/posts/SQlite3"/>
+   <updated>2013-03-06T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/SQlite3</id>
+   <content type="html">&lt;p&gt;After your succefull Rails 4 install, you can&#39;t run it (&lt;code&gt;rails server&lt;/code&gt;), because your SQLite3 isn&#39;t compatible with Ruby 2 yet.&lt;/p&gt;
+
+&lt;p&gt;Checking Google, i&#39;ve found this : &lt;a href=&quot;https://groups.google.com/forum/#!topic/rubyinstaller/gedIaMryCFQ/discussion&quot;&gt;https://groups.google.com/forum/#!topic/rubyinstaller/gedIaMryCFQ/discussion&lt;/a&gt; and this &lt;a href=&quot;https://gist.github.com/luislavena/5120722&quot;&gt;https://gist.github.com/luislavena/5120722&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So,&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;uninstall the sqlite3 gem for cleaning : &lt;code&gt;gem uni sqlite3&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;download the knapsack found in the discussion, and place it in a temp repertory (ie &lt;em&gt;c:/dev/temp&lt;/em&gt;).&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;compile sqlite3 with the knapsack &lt;code&gt;gem install sqlite3 --platform=ruby -- --with-opt-dir=C:/dev/temp&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Test it :&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;irb&quot;&gt;&lt;span class=&quot;go&quot;&gt;    irb&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    require &amp;#39;sqlite3&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    SQLite3::SQLITE_VERSION` =&amp;gt; &amp;quot;3.7.15.2&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;    &lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You&#39;re good :) Thansk Luis.&lt;/p&gt;
+
+&lt;p&gt;PS : often Rails need to update some gem, but it you want to keep some special gem (like this sqlite3), don&#39;t use &lt;code&gt;bundle update&lt;/code&gt; but &lt;code&gt;bundle update --local&lt;/code&gt; and install manually missing gem.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Installation from scratch : Ruby 2.0.0 under Windows</title>
+   <link href="http://traz.github.com/posts/Installation"/>
+   <updated>2013-03-05T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/Installation</id>
+   <content type="html">&lt;p&gt;First set up some tools. Console2 was for longtime my shell manager, but i&#39;ve discovered recently ConEmu whitch has more pretty options.&lt;/p&gt;
+
+&lt;h3&gt;Console2 2.00b147&lt;/h3&gt;
+
+&lt;p&gt;Download &lt;a href=&quot;http://sourceforge.net/projects/console/&quot;&gt;Console2&lt;/a&gt;. You&#39;ll need to install ANSICON for managing colors (ConEmu do not need ANSICON), see below.&lt;/p&gt;
+
+&lt;h3&gt;Configure PATH for NTLM Proxy&lt;/h3&gt;
+
+&lt;p&gt;In case you&#39;re under some NTLM Proxy, you&#39;ll need to set some variables :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bat&quot;&gt;&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;HTTP_PROXY&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;http:&lt;span class=&quot;n&quot;&gt;//proxy.adress:proxy_port&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;HTTP_PROXY_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;userxxx
+&lt;span class=&quot;k&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;HTTP_PROXY_PASS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;passwordxxxx
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I used to centralize all my install into one directory &lt;em&gt;c:/dev&lt;/em&gt; and puts all single .exe or .dll under &lt;em&gt;c:/dev/bin&lt;/em&gt; and put those in PATH (ie : for SQLite3 dll and exe, LAME library, ffmpeg, ...).&lt;/p&gt;
+
+&lt;h3&gt;Ansicon 1.60&lt;/h3&gt;
+
+&lt;p&gt;For nice console output : &lt;a href=&quot;https://github.com/adoxa/ansicon/downloads&quot;&gt;Ansicon&lt;/a&gt;. Download it and put the file under &lt;em&gt;c:/dev/bin&lt;/em&gt;.
+You can register it for automatic launch in each console :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bat&quot;&gt;anssicon -i
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;ConEmu doesn&#39;t use Ansicon.&lt;/p&gt;
+
+&lt;h3&gt;Ruby 2.0&lt;/h3&gt;
+
+&lt;p&gt;Download and install Ruby 2.0 : &lt;a href=&quot;http://rubyinstaller.org/&quot;&gt;RubyInstaller for Windows&lt;/a&gt; (under &lt;em&gt;c:/ruby200&lt;/em&gt;). Check it :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bat&quot;&gt;ruby -v
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;DevKit 4.7.2&lt;/h3&gt;
+
+&lt;p&gt;Download also on RubyInstaller for Windows the right DevKit (version 4.7.2, 32 or 64 bits) and install it under &lt;em&gt;c:/dev/devkit&lt;/em&gt;.
+Check the PATH :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bat&quot;&gt; 
+&lt;span class=&quot;k&quot;&gt;echo&lt;/span&gt; PATH
+&amp;gt;&amp;gt;... c:&lt;span class=&quot;n&quot;&gt;/dev/devkit/bin&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And test the first unix commands :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sh --login
+ls -l
+&lt;span class=&quot;nb&quot;&gt;exit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The home directory is &lt;em&gt;c:/dev/devkit/home/(user)&lt;/em&gt;. I&#39;ve created a &lt;em&gt;.profile&lt;/em&gt; file here for configuring some alias :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ls&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;ls --color&amp;quot;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;ll&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;ls -l&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;w&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;which&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;e&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;exit&amp;#39;&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;alias &lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;st&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;C:/&amp;#39;Program Files&amp;#39;/&amp;#39;Sublime Text 2&amp;#39;/sublime_text.exe&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;SublimeText2&lt;/h3&gt;
+
+&lt;p&gt;Download and install it &lt;a href=&quot;http://www.sublimetext.com/2&quot;&gt;SublimeText2&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Configure ST2&lt;/h3&gt;
+
+&lt;p&gt;In menu preferences / Setting - Default, some modifications&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;font_face&quot;: &quot;Consolas&quot;,
+&quot;font_size&quot;: 10.0,
+&quot;tab_size&quot;: 2,
+&quot;translate_tabs_to_spaces&quot;: true,
+&quot;folder_exclude_patterns&quot;: [&quot;.svn&quot;,&quot;.keep&quot;, &quot;.gitignore&quot;, &quot;.git&quot;, &quot;.hg&quot;, &quot;CVS&quot;]&amp;gt; 
+&quot;file_exclude_patterns&quot;: [&quot;*.pyc&quot;, &quot;*.pyo&quot;, &quot;*.exe&quot;, &quot;*.dll&quot;, &quot;*.obj&quot;,&quot;*.o&quot;, &quot;*.a&quot;, &quot;*.lib&quot;, &quot;*.so&quot;, &quot;*.dylib&quot;, &quot;*.ncb&quot;, &quot;*.sdf&quot;, &quot;*.suo&quot;, &quot;*.pdb&quot;, &quot;*.idb&quot;, &quot;.DS_Store&quot;, &quot;*.class&quot;, &quot;*.psd&quot;, &quot;*.db&quot;],
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Install the Package Manager ST2&lt;/h3&gt;
+
+&lt;p&gt;SublimeText has many usefull plugins, and a good package manager. Follow the instructions under &lt;a href=&quot;http://wbond.net/sublime_packages/package_control&quot;&gt;Sublime package control&lt;/a&gt; for the installation.
+If you&#39;re under a proxy, change your settings : Preferences / Package setting / Package control / Setting - Default :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;http_proxy&quot;: &quot;http://proxy.name:port&quot;,
+&quot;proxy_username&quot;: &quot;&quot;,
+&quot;proxy_password&quot;: &quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Install some plugins for ST2&lt;/h3&gt;
+
+&lt;p&gt;Check the community site for the packages : &lt;a href=&quot;http://wbond.net/sublime_packages/community&quot;&gt;community package control&lt;/a&gt;, and try them :)&lt;/p&gt;
+
+&lt;p&gt;For SublimeTODO package, change the settings (menu preferences / setting user), ie :&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;todo&quot;:
+{
+  &quot;case_sensitive&quot;: true,
+  &quot;file_exclude_patterns&quot;:
+  [
+    &quot;*.css&quot;,
+    &quot;*.po&quot;,
+    &quot;*.mo&quot;
+  ],
+  &quot;folder_exclude_patterns&quot;:
+  [
+    &quot;static&quot;,
+    &quot;vendor&quot;,
+    &quot;tmp&quot;
+  ],
+  &quot;patterns&quot;:
+  {
+    &quot;BUG&quot;: &quot;BUG[\\s]*?:+(?P&amp;lt;bug&amp;gt;.*)$&quot;,
+    &quot;TEST&quot;: &quot;TEST[\\s]*?:+(?P&amp;lt;test&amp;gt;.*)$&quot;
+  },
+  &quot;result_title&quot;: &quot;TODO Results list&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;GIT&lt;/h3&gt;
+
+&lt;p&gt;Some good reading link (fr/eng) for starting :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://rogerdudler.github.com/git-guide/index.fr.html&quot;&gt;http://rogerdudler.github.com/git-guide/index.fr.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.siteduzero.com/tutoriel-3-254198-gerez-vos-codes-source-avec-git.html&quot;&gt;http://www.siteduzero.com/tutoriel-3-254198-gerez-vos-codes-source-avec-git.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.pierreschambacher.com/blog/git-in-a-nutshell/&quot;&gt;http://www.pierreschambacher.com/blog/git-in-a-nutshell/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;http://git-scm.com/book&quot;&gt;http://git-scm.com/book&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;In first, install &lt;a href=&quot;http://git-scm.com/downloads&quot;&gt;GIT for Windows&lt;/a&gt; under &lt;em&gt;c:/dev/git&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Configure Console2 for the git bash shell :(console settings / tabs) :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Title : Git&lt;/li&gt;
+&lt;li&gt;Icon : c:/dev/git/etc/git.ico&lt;/li&gt;
+&lt;li&gt;Shell : C:\WINDOWS\system32\cmd.exe /c &quot;&quot;C:\Dev\Git\bin\sh.exe&quot; --login -i&quot;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;You can either configure ConEmu with the same command line.&lt;/p&gt;
+
+&lt;p&gt;Launch a new shell and check :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git config -l
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and eventually modifiy them&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git config –-global user.name xxx
+git config –-global user.email xxx@xxx.com
+git config --global core.editor vim
+git config color.ui &lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+git config format.pretty oneline
+git config --global http.proxy http://user:password@proxy.adress:port
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Check again :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git config --list &lt;span class=&quot;c&quot;&gt;# pour vérifier&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can use SublimeText as Git editor :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;git config --global core.editor &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;#39;c:/program files/sublime text 2/sublime_text.exe&amp;#39; -w&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;SQLite3 3.7.15.2&lt;/h3&gt;
+
+&lt;p&gt;Go on &lt;a href=&quot;http://www.sqlite.org/download.html&quot;&gt;SQLite&lt;/a&gt; and download &#39;precompiled binaries for windows&#39; :
+- sqlite-dll-win32-x86-...zip : the dll
+- sqlite-shell-win32-x86-...zip : the shell SQLite&lt;/p&gt;
+
+&lt;p&gt;Copy all of them under &lt;em&gt;c:/dev/bin&lt;/em&gt; (so they are in the PATH) and test :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sqlite3&quot;&gt;&lt;span class=&quot;go&quot;&gt;sqlite3&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;.help&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;.quit&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Your Ruby library : GEM&lt;/h3&gt;
+
+&lt;p&gt;First update :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;gem update --system
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And the others :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;gem update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;And finaly Rails 4 !!&lt;/h3&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;gem install rails --version 4.0.0.beta1 --no-ri --no-rdoc
+rails -v
+rails server -p 80
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And ... normaly you&#39;ll get some nusty bug here from SQLite3 :) Don&#39;t worry, check the next article.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Kaminari</title>
+   <link href="http://traz.github.com/posts/kaminari"/>
+   <updated>2012-09-02T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/kaminari</id>
+   <content type="html">&lt;p&gt;generate Kaminari files :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;rails g kaminari:config
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As Kaminari&#39;s paginating scope is just an ordinal AR scope, you can do that in quite natural way.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;no&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;published_at&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;page&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;per&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Of course default_scope works great with Kaminari for this purpose.&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Book&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;ActiveRecord&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:Base&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;default_scope&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;order&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&amp;#39;published_at&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;see &lt;a href=&quot;https://github.com/amatsuda/kaminari#creating-friendly-urls-and-caching&quot;&gt;friendly url&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;&lt;span class=&quot;n&quot;&gt;resources&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:my_resources&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;do&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;get&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;page/:page&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:action&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;ss&quot;&gt;:collection&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;views :&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;sh&quot;&gt;rails g kaminari:views default -e haml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;see &lt;a href=&quot;http://www.funonrails.com/2011/12/twitter-bootstrap-paginate-and-rails-3.html&quot;&gt;bootstrap adaptation&lt;/a&gt;&lt;/p&gt;
+
+&lt;h1&gt;adapt to bootstrap&lt;/h1&gt;
+
+&lt;p&gt;Generate view and replace %span by %ul and %li, and in current page, replace link_to_unless by link_to.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Rails Dates</title>
+   <link href="http://traz.github.com/posts/railsdate"/>
+   <updated>2012-09-01T00:00:00+11:00</updated>
+   <id>http://traz.github.com/posts/railsdate</id>
+   <content type="html">&lt;p&gt;i.e. : &lt;code&gt;@comment.created_at.strftime(&quot;%d %b %y&quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%a - The abbreviated weekday name (&#39;&#39;Sun&#39;&#39;)
+%A - The  full  weekday  name (&#39;&#39;Sunday&#39;&#39;)
+%b - The abbreviated month name (&#39;&#39;Jan&#39;&#39;)
+%B - The  full  month  name (&#39;&#39;January&#39;&#39;)
+%c - The preferred local date and time representation
+%d - Day of the month (01..31)
+%H - Hour of the day, 24-hour clock (00..23)
+%I - Hour of the day, 12-hour clock (01..12)
+%j - Day of the year (001..366)
+%m - Month of the year (01..12)
+%M - Minute of the hour (00..59)
+%p - Meridian indicator (&#39;&#39;AM&#39;&#39; or &#39;&#39;PM&#39;&#39;)
+%S - Second of the minute (00..60)
+%U - Week  number  of the current year,
+      starting with the first Sunday as the first
+      day of the first week (00..53)
+%W - Week  number  of the current year,
+      starting with the first Monday as the first
+      day of the first week (00..53)
+%w - Day of the week (Sunday is 0, 0..6)
+%x - Preferred representation for the date alone, no time
+%X - Preferred representation for the time alone, no date
+%y - Year without a century (00..99)
+%Y - Year with century
+%Z - Time zone name
+%% - Literal &#39;&#39;%&#39;&#39; character
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+ </entry>
+ 
+
+</feed>

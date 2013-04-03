@@ -1,0 +1,349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Installation from scratch : Ruby 2.0.0 under Windows</title>
+
+  <meta name="author" content="Traz" />
+  <meta name="description" content="Small notes about Rails and Ruby" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href="/css/pygments.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Traz's notes</a>
+        <ul class="nav">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/tags.html">Tags</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <a href="/atom.xml" title="Atom Feed">
+              <i class="icon-rss icon-large"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="content">
+  <h1>
+    <a href="/posts/Installation">Installation from scratch : Ruby 2.0.0 under Windows</a>
+    <small><a href="/tag/windows.html">windows</a>, <a href="/tag/ruby%202.html">ruby 2</a>, <a href="/tag/rails%204.html">rails 4</a>, <a href="/tag/sqlite3.html">sqlite3</a>, <a href="/tag/ansicon.html">ansicon</a>, <a href="/tag/console2.html">console2</a>, <a href="/tag/conemu.html">conemu</a>, <a href="/tag/git.html">git</a></small>
+  </h1>
+
+  <section class="byline">
+    March  5, 2013
+  </section>
+
+  <p>First set up some tools. Console2 was for longtime my shell manager, but i've discovered recently ConEmu whitch has more pretty options.</p>
+
+<h3>Console2 2.00b147</h3>
+
+<p>Download <a href="http://sourceforge.net/projects/console/">Console2</a>. You'll need to install ANSICON for managing colors (ConEmu do not need ANSICON), see below.</p>
+
+<h3>Configure PATH for NTLM Proxy</h3>
+
+<p>In case you're under some NTLM Proxy, you'll need to set some variables :</p>
+
+<div class="highlight"><pre><code class="bat"><span class="k">set</span> <span class="nv">HTTP_PROXY</span><span class="o">=</span>http:<span class="n">//proxy.adress:proxy_port</span>
+<span class="k">set</span> <span class="nv">HTTP_PROXY_USER</span><span class="o">=</span>userxxx
+<span class="k">set</span> <span class="nv">HTTP_PROXY_PASS</span><span class="o">=</span>passwordxxxx
+</code></pre></div>
+
+
+<p>I used to centralize all my install into one directory <em>c:/dev</em> and puts all single .exe or .dll under <em>c:/dev/bin</em> and put those in PATH (ie : for SQLite3 dll and exe, LAME library, ffmpeg, ...).</p>
+
+<h3>Ansicon 1.60</h3>
+
+<p>For nice console output : <a href="https://github.com/adoxa/ansicon/downloads">Ansicon</a>. Download it and put the file under <em>c:/dev/bin</em>.
+You can register it for automatic launch in each console :</p>
+
+<div class="highlight"><pre><code class="bat">anssicon -i
+</code></pre></div>
+
+
+<p>ConEmu doesn't use Ansicon.</p>
+
+<h3>Ruby 2.0</h3>
+
+<p>Download and install Ruby 2.0 : <a href="http://rubyinstaller.org/">RubyInstaller for Windows</a> (under <em>c:/ruby200</em>). Check it :</p>
+
+<div class="highlight"><pre><code class="bat">ruby -v
+</code></pre></div>
+
+
+<h3>DevKit 4.7.2</h3>
+
+<p>Download also on RubyInstaller for Windows the right DevKit (version 4.7.2, 32 or 64 bits) and install it under <em>c:/dev/devkit</em>.
+Check the PATH :</p>
+
+<div class="highlight"><pre><code class="bat"> 
+<span class="k">echo</span> PATH
+&gt;&gt;... c:<span class="n">/dev/devkit/bin</span>
+</code></pre></div>
+
+
+<p>And test the first unix commands :</p>
+
+<div class="highlight"><pre><code class="bash">sh --login
+ls -l
+<span class="nb">exit</span>
+</code></pre></div>
+
+
+<p>The home directory is <em>c:/dev/devkit/home/(user)</em>. I've created a <em>.profile</em> file here for configuring some alias :</p>
+
+<div class="highlight"><pre><code class="bash"><span class="nb">alias </span><span class="nv">ls</span><span class="o">=</span><span class="s2">&quot;ls --color&quot;</span>
+<span class="nb">alias </span><span class="nv">ll</span><span class="o">=</span><span class="s1">&#39;ls -l&#39;</span>
+<span class="nb">alias </span><span class="nv">w</span><span class="o">=</span><span class="s1">&#39;which&#39;</span>
+<span class="nb">alias </span><span class="nv">e</span><span class="o">=</span><span class="s1">&#39;exit&#39;</span>
+<span class="nb">alias </span><span class="nv">st</span><span class="o">=</span><span class="s2">&quot;C:/&#39;Program Files&#39;/&#39;Sublime Text 2&#39;/sublime_text.exe&quot;</span>
+</code></pre></div>
+
+
+<h3>SublimeText2</h3>
+
+<p>Download and install it <a href="http://www.sublimetext.com/2">SublimeText2</a>.</p>
+
+<h3>Configure ST2</h3>
+
+<p>In menu preferences / Setting - Default, some modifications</p>
+
+<pre><code>"font_face": "Consolas",
+"font_size": 10.0,
+"tab_size": 2,
+"translate_tabs_to_spaces": true,
+"folder_exclude_patterns": [".svn",".keep", ".gitignore", ".git", ".hg", "CVS"]&gt; 
+"file_exclude_patterns": ["*.pyc", "*.pyo", "*.exe", "*.dll", "*.obj","*.o", "*.a", "*.lib", "*.so", "*.dylib", "*.ncb", "*.sdf", "*.suo", "*.pdb", "*.idb", ".DS_Store", "*.class", "*.psd", "*.db"],
+</code></pre>
+
+<h3>Install the Package Manager ST2</h3>
+
+<p>SublimeText has many usefull plugins, and a good package manager. Follow the instructions under <a href="http://wbond.net/sublime_packages/package_control">Sublime package control</a> for the installation.
+If you're under a proxy, change your settings : Preferences / Package setting / Package control / Setting - Default :</p>
+
+<pre><code>"http_proxy": "http://proxy.name:port",
+"proxy_username": "",
+"proxy_password": ""
+</code></pre>
+
+<h3>Install some plugins for ST2</h3>
+
+<p>Check the community site for the packages : <a href="http://wbond.net/sublime_packages/community">community package control</a>, and try them :)</p>
+
+<p>For SublimeTODO package, change the settings (menu preferences / setting user), ie :</p>
+
+<pre><code>"todo":
+{
+  "case_sensitive": true,
+  "file_exclude_patterns":
+  [
+    "*.css",
+    "*.po",
+    "*.mo"
+  ],
+  "folder_exclude_patterns":
+  [
+    "static",
+    "vendor",
+    "tmp"
+  ],
+  "patterns":
+  {
+    "BUG": "BUG[\\s]*?:+(?P&lt;bug&gt;.*)$",
+    "TEST": "TEST[\\s]*?:+(?P&lt;test&gt;.*)$"
+  },
+  "result_title": "TODO Results list"
+}
+</code></pre>
+
+<h3>GIT</h3>
+
+<p>Some good reading link (fr/eng) for starting :</p>
+
+<ul>
+<li><a href="http://rogerdudler.github.com/git-guide/index.fr.html">http://rogerdudler.github.com/git-guide/index.fr.html</a></li>
+<li><a href="http://www.siteduzero.com/tutoriel-3-254198-gerez-vos-codes-source-avec-git.html">http://www.siteduzero.com/tutoriel-3-254198-gerez-vos-codes-source-avec-git.html</a></li>
+<li><a href="http://www.pierreschambacher.com/blog/git-in-a-nutshell/">http://www.pierreschambacher.com/blog/git-in-a-nutshell/</a></li>
+<li><a href="http://git-scm.com/book">http://git-scm.com/book</a></li>
+</ul>
+
+
+<p>In first, install <a href="http://git-scm.com/downloads">GIT for Windows</a> under <em>c:/dev/git</em></p>
+
+<p>Configure Console2 for the git bash shell :(console settings / tabs) :</p>
+
+<ul>
+<li>Title : Git</li>
+<li>Icon : c:/dev/git/etc/git.ico</li>
+<li>Shell : C:\WINDOWS\system32\cmd.exe /c ""C:\Dev\Git\bin\sh.exe" --login -i"</li>
+</ul>
+
+
+<p>You can either configure ConEmu with the same command line.</p>
+
+<p>Launch a new shell and check :</p>
+
+<div class="highlight"><pre><code class="sh">git config -l
+</code></pre></div>
+
+
+<p>and eventually modifiy them</p>
+
+<div class="highlight"><pre><code class="sh">git config –-global user.name xxx
+git config –-global user.email xxx@xxx.com
+git config --global core.editor vim
+git config color.ui <span class="nb">true</span>
+git config format.pretty oneline
+git config --global http.proxy http://user:password@proxy.adress:port
+</code></pre></div>
+
+
+<p>Check again :</p>
+
+<div class="highlight"><pre><code class="sh">git config --list <span class="c"># pour vérifier</span>
+</code></pre></div>
+
+
+<p>You can use SublimeText as Git editor :</p>
+
+<div class="highlight"><pre><code class="sh">git config --global core.editor <span class="s2">&quot;&#39;c:/program files/sublime text 2/sublime_text.exe&#39; -w&quot;</span>
+</code></pre></div>
+
+
+<h3>SQLite3 3.7.15.2</h3>
+
+<p>Go on <a href="http://www.sqlite.org/download.html">SQLite</a> and download 'precompiled binaries for windows' :
+- sqlite-dll-win32-x86-...zip : the dll
+- sqlite-shell-win32-x86-...zip : the shell SQLite</p>
+
+<p>Copy all of them under <em>c:/dev/bin</em> (so they are in the PATH) and test :</p>
+
+<div class="highlight"><pre><code class="sqlite3"><span class="go">sqlite3</span>
+<span class="go">.help</span>
+<span class="go">.quit</span>
+</code></pre></div>
+
+
+<h3>Your Ruby library : GEM</h3>
+
+<p>First update :</p>
+
+<div class="highlight"><pre><code class="sh">gem update --system
+</code></pre></div>
+
+
+<p>And the others :</p>
+
+<div class="highlight"><pre><code class="sh">gem update
+</code></pre></div>
+
+
+<h3>And finaly Rails 4 !!</h3>
+
+<div class="highlight"><pre><code class="sh">gem install rails --version 4.0.0.beta1 --no-ri --no-rdoc
+rails -v
+rails server -p 80
+</code></pre></div>
+
+
+<p>And ... normaly you'll get some nusty bug here from SQLite3 :) Don't worry, check the next article.</p>
+
+  <div class="pull"></div>
+  <a  href="https://twitter.com/share" class="twitter-share-button"
+data-via="iTraz" data-lang="en" data-size="large">Tweet</a>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,"script","twitter-wjs");
+</script>
+
+  <hr>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'traz';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</section>
+
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2">
+            <a href="https://twitter.com/iTraz">
+              <i class="icon icon-twitter icon-4x"></i>
+              <div>Follow me on Twitter.</div>
+            </a>
+          </div>
+          <div class="span2"></div>
+          <div class="span2 next">
+            <a href="https://github.com/Traz">
+              <i class="icon icon-github icon-4x"></i>
+              <div>
+                See my github profile.
+              </div>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35208058-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+
+</body>
+
+</html>

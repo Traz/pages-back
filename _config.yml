@@ -1,0 +1,16 @@
+markdown: rdiscount
+server_port: 80
+pygments: true
+permalink: /posts/:title
+auto: true
+title : "Traz's notes"
+production_url : http://traz.github.com
+description: "Small notes about Rails and Ruby"
+disqus_shortname: traz
+analytics: UA-35208058-1
+author :
+  name : Traz
+  github : Traz
+  twitter : iTraz
+tag_page_layout: tag_page
+tag_page_dir: tag

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>PRY colorized prompt</title>
+
+  <meta name="author" content="Traz" />
+  <meta name="description" content="Small notes about Rails and Ruby" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href="/css/pygments.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Traz's notes</a>
+        <ul class="nav">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/tags.html">Tags</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <a href="/atom.xml" title="Atom Feed">
+              <i class="icon-rss icon-large"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="content">
+  <h1>
+    <a href="/posts/Pry-prompt">PRY colorized prompt</a>
+    <small><a href="/tag/pry.html">pry</a>, <a href="/tag/prompt.html">prompt</a></small>
+  </h1>
+
+  <section class="byline">
+    March 26, 2013
+  </section>
+
+  <h3>The solution, now !</h3>
+
+<p>After few hours of digging around several solution, I've finally have a working colorized prompt for PRY !*</p>
+
+<p>So the final solution now : (puts those lines in your <em>.pryrc</em> at you $HOME)</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="no">Pry</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="o">[</span>
+              <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">target_self</span><span class="p">,</span> <span class="n">nest_level</span><span class="p">,</span> <span class="n">pry</span><span class="o">|</span>
+                    <span class="s2">&quot;[</span><span class="si">#{</span><span class="n">pry</span><span class="o">.</span><span class="n">input_array</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">]</span><span class="se">\001\e</span><span class="s2">[0;32m</span><span class="se">\002</span><span class="si">#{</span><span class="no">Pry</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">prompt_name</span><span class="si">}</span><span class="se">\001\e</span><span class="s2">[0m</span><span class="se">\002</span><span class="s2">(</span><span class="se">\001\e</span><span class="s2">[0;33m</span><span class="se">\002</span><span class="si">#{</span><span class="no">Pry</span><span class="o">.</span><span class="n">view_clip</span><span class="p">(</span><span class="n">target_self</span><span class="p">)</span><span class="si">}</span><span class="se">\001\e</span><span class="s2">[0m</span><span class="se">\002</span><span class="s2">)</span><span class="si">#{</span><span class="s2">&quot;:</span><span class="si">#{</span><span class="n">nest_level</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">nest_level</span><span class="o">.</span><span class="n">zero?</span><span class="si">}</span><span class="s2">&gt; &quot;</span>
+                   <span class="p">},</span>
+              <span class="nb">proc</span> <span class="p">{</span> <span class="o">|</span><span class="n">target_self</span><span class="p">,</span> <span class="n">nest_level</span><span class="p">,</span> <span class="n">pry</span><span class="o">|</span>
+                    <span class="s2">&quot;[</span><span class="si">#{</span><span class="n">pry</span><span class="o">.</span><span class="n">input_array</span><span class="o">.</span><span class="n">size</span><span class="si">}</span><span class="s2">]</span><span class="se">\001\e</span><span class="s2">[1;32m</span><span class="se">\002</span><span class="si">#{</span><span class="no">Pry</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">prompt_name</span><span class="si">}</span><span class="se">\001\e</span><span class="s2">[0m</span><span class="se">\002</span><span class="s2">(</span><span class="se">\001\e</span><span class="s2">[1;33m</span><span class="se">\002</span><span class="si">#{</span><span class="no">Pry</span><span class="o">.</span><span class="n">view_clip</span><span class="p">(</span><span class="n">target_self</span><span class="p">)</span><span class="si">}</span><span class="se">\001\e</span><span class="s2">[0m</span><span class="se">\002</span><span class="s2">)</span><span class="si">#{</span><span class="s2">&quot;:</span><span class="si">#{</span><span class="n">nest_level</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">unless</span> <span class="n">nest_level</span><span class="o">.</span><span class="n">zero?</span><span class="si">}</span><span class="s2">* &quot;</span>
+                   <span class="p">}</span>
+              <span class="o">]</span>
+</code></pre></div>
+
+
+<h3>Explications</h3>
+
+<p>First the color code :</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">color</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:red</span> <span class="o">=&gt;</span> <span class="s2">&quot;31m&quot;</span><span class="p">,</span>
+  <span class="ss">:green</span> <span class="o">=&gt;</span> <span class="s2">&quot;32m&quot;</span><span class="p">,</span>
+  <span class="ss">:yellow</span> <span class="o">=&gt;</span> <span class="s2">&quot;33m&quot;</span><span class="p">,</span>
+  <span class="ss">:blue</span> <span class="o">=&gt;</span> <span class="s2">&quot;34m&quot;</span><span class="p">,</span>
+  <span class="ss">:purple</span> <span class="o">=&gt;</span> <span class="s2">&quot;35m&quot;</span><span class="p">,</span>
+  <span class="ss">:cyan</span> <span class="o">=&gt;</span> <span class="s2">&quot;36m&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+
+<p>The color format is <code>\e[0;31m</code> for a red and <code>\e[1;31m</code> for a darkess red, ending with a <code>\e[0m</code> sequence.</p>
+
+<p>But you have to escape those special caracters because the readline library doesn't count well the line lenght. So this why we got a <code>\001</code> in starting and a <code>\001</code> in finish.</p>
+
+<h3>Further reading</h3>
+
+<p>Pry prompt can change in realtime in the pry shell whith the <code>_pry_</code> variable, ie :</p>
+
+<div class="highlight"><pre><code class="ruby"><span class="n">_pry_</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="nb">proc</span> <span class="p">{</span> <span class="s2">&quot;&gt; &quot;</span> <span class="p">}</span>
+<span class="n">_pry_</span><span class="o">.</span><span class="n">prompt</span> <span class="o">=</span> <span class="ss">Pry</span><span class="p">:</span><span class="ss">:DEFAULT_PROMPT</span>
+</code></pre></div>
+
+
+<p>Check thoses links :</p>
+
+<ul>
+<li><a href="https://github.com/pry/pry/wiki/Customization-and-configuration#runtime-customization">Pry customization</a></li>
+<li><a href="https://github.com/pry/pry/issues/493">Pry issue on colorizing the prompt</a></li>
+<li><a href="http://stackoverflow.com/questions/8992330/why-does-my-irb-prompt-with-ansi-color-codes-mess-up-page-up-down-behavior-with">Stakoverflow discussion about escaping sequence</a></li>
+<li><a href="http://stackoverflow.com/questions/8806643/colorized-output-breaks-linewrapping-with-readline/8916332#8916332">Another stakeoverflow about readline and color</a></li>
+<li><a href="http://superuser.com/questions/301353/escape-non-printing-characters-in-a-function-for-a-bash-prompt">The right explication for the escaping sequence in readline</a></li>
+</ul>
+
+
+  <div class="pull"></div>
+  <a  href="https://twitter.com/share" class="twitter-share-button"
+data-via="iTraz" data-lang="en" data-size="large">Tweet</a>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,"script","twitter-wjs");
+</script>
+
+  <hr>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'traz';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</section>
+
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2">
+            <a href="https://twitter.com/iTraz">
+              <i class="icon icon-twitter icon-4x"></i>
+              <div>Follow me on Twitter.</div>
+            </a>
+          </div>
+          <div class="span2"></div>
+          <div class="span2 next">
+            <a href="https://github.com/Traz">
+              <i class="icon icon-github icon-4x"></i>
+              <div>
+                See my github profile.
+              </div>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35208058-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+
+</body>
+
+</html>

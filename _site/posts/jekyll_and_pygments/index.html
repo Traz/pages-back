@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Dr Jekyll and Github</title>
+
+  <meta name="author" content="Traz" />
+  <meta name="description" content="Small notes about Rails and Ruby" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href="/css/pygments.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Traz's notes</a>
+        <ul class="nav">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/tags.html">Tags</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <a href="/atom.xml" title="Atom Feed">
+              <i class="icon-rss icon-large"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="content">
+  <h1>
+    <a href="/posts/jekyll_and_pygments">Dr Jekyll and Github</a>
+    <small><a href="/tag/jekyll.html">jekyll</a>, <a href="/tag/markdown.html">markdown</a>, <a href="/tag/github.html">github</a></small>
+  </h1>
+
+  <section class="byline">
+    March 20, 2013
+  </section>
+
+  <h3>Markdown : choising the right one</h3>
+
+<p>So we've got rdiscount, maruku, redcarpet, redcloth and kramdown ... (look at <a href="https://www.ruby-toolbox.com/categories/markup_processors">https://www.ruby-toolbox.com/categories/markup_processors</a>) The last one, kramdown, seem to be the most active with lot of nice features (simplified code declaration, tables, ...).</p>
+
+<p>But, after few try, the configuration Windows + Ruby 2.0 + Jekyll doesn't work with any of them (problem with encoding : "incompatible encoding regexp match (UTF-8 regexp with CP850 string)" ... i have to look further).</p>
+
+<p>Still work : the old rdiscount ... Ok.</p>
+
+<h3>Jekyll : choosing a theme.</h3>
+
+<p>After few digs, i choose this one <a href="https://github.com/caarlos0/up">https://github.com/caarlos0/up</a> : it's simple, doesn't have some features (tags, articles) but for the starting, it feet.</p>
+
+<p>Cloning it, changing the configuration and it's ok (it come with Disqus, Gauge, Google analytic, ... with a centre configuration in <em>_config.yml</em>).</p>
+
+<h3>Highlighting some code</h3>
+
+<p>With pygments.rb. So : install the gem <code>gem i pygments.rb</code> and ... install Python ! Tried with Python 3, but Pygments doesn't work with it (look at issues on Github), so installed Python 2.7 : work with no error, some hatml class generated ... missing a css !!</p>
+
+<p>Digging again and found this solution : <a href="http://www.stehem.net/2012/02/14/how-to-get-pygments-to-work-with-jekyll.html">http://www.stehem.net/2012/02/14/how-to-get-pygments-to-work-with-jekyll.html</a>.</p>
+
+<p>For generating the css file, go to your pygments.rb gem folder <em>C:\Ruby200\lib\ruby\gems\2.0.0\gems\pygments.rb-0.4.2\vendor\pygments-main</em> and launch :</p>
+
+<div class="highlight"><pre><code class="sh">pygmentize -S default -f html &gt; pygments.css
+</code></pre></div>
+
+
+<p>Copy the css file into your jekyll css directory, declare it in the layout, <code>&lt;link href="/css/pygments.css" rel="stylesheet"&gt;</code> and this time all is done :)</p>
+
+<p>For highlighting some code, you must embrace him with a <code>{ % highlight lexer_name % }</code> starting block and finish it with a <code>{ % endhighlight % }</code> block (remove the space betwenn { or } and % for proper work). You've got plenty of lexer : ruby, irb, bash, bat ... check <a href="http://pygments.org/docs/lexers/">http://pygments.org/docs/lexers/</a>.</p>
+
+<p>Feel free to look in deep at this github repository.</p>
+
+<h3>Some Git</h3>
+
+<p>Before sending your pages to Hithub, check them in local with <code>jekyll serve</code> : if there are some syntax error, you'll find them quickly (on other side, the page with error isn't displayed and there are no warning ...)
+Simply :</p>
+
+<div class="highlight"><pre><code class="sh">git add .
+git comit -m <span class="s1">&#39;my commit&#39;</span>
+git push origin master
+</code></pre></div>
+
+
+
+
+  <div class="pull"></div>
+  <a  href="https://twitter.com/share" class="twitter-share-button"
+data-via="iTraz" data-lang="en" data-size="large">Tweet</a>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,"script","twitter-wjs");
+</script>
+
+  <hr>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'traz';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</section>
+
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2">
+            <a href="https://twitter.com/iTraz">
+              <i class="icon icon-twitter icon-4x"></i>
+              <div>Follow me on Twitter.</div>
+            </a>
+          </div>
+          <div class="span2"></div>
+          <div class="span2 next">
+            <a href="https://github.com/Traz">
+              <i class="icon icon-github icon-4x"></i>
+              <div>
+                See my github profile.
+              </div>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35208058-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+
+</body>
+
+</html>

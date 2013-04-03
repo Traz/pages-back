@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>Rails 4, Ruby 2.0 and SQLite3</title>
+
+  <meta name="author" content="Traz" />
+  <meta name="description" content="Small notes about Rails and Ruby" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href="/css/pygments.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Traz's notes</a>
+        <ul class="nav">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/tags.html">Tags</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <a href="/atom.xml" title="Atom Feed">
+              <i class="icon-rss icon-large"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="content">
+  <h1>
+    <a href="/posts/SQlite3">Rails 4, Ruby 2.0 and SQLite3</a>
+    <small><a href="/tag/windows.html">windows</a>, <a href="/tag/ruby%202.html">ruby 2</a>, <a href="/tag/rails%204.html">rails 4</a>, <a href="/tag/sqlite3.html">sqlite3</a></small>
+  </h1>
+
+  <section class="byline">
+    March  6, 2013
+  </section>
+
+  <p>After your succefull Rails 4 install, you can't run it (<code>rails server</code>), because your SQLite3 isn't compatible with Ruby 2 yet.</p>
+
+<p>Checking Google, i've found this : <a href="https://groups.google.com/forum/#!topic/rubyinstaller/gedIaMryCFQ/discussion">https://groups.google.com/forum/#!topic/rubyinstaller/gedIaMryCFQ/discussion</a> and this <a href="https://gist.github.com/luislavena/5120722">https://gist.github.com/luislavena/5120722</a></p>
+
+<p>So,</p>
+
+<ol>
+<li><p>uninstall the sqlite3 gem for cleaning : <code>gem uni sqlite3</code></p></li>
+<li><p>download the knapsack found in the discussion, and place it in a temp repertory (ie <em>c:/dev/temp</em>).</p></li>
+<li><p>compile sqlite3 with the knapsack <code>gem install sqlite3 --platform=ruby -- --with-opt-dir=C:/dev/temp</code></p></li>
+<li><p>Test it :</p></li>
+</ol>
+
+
+<div class="highlight"><pre><code class="irb"><span class="go">    irb</span>
+<span class="go">    require &#39;sqlite3&#39;</span>
+<span class="go">    SQLite3::SQLITE_VERSION` =&gt; &quot;3.7.15.2&quot;</span>
+<span class="go">    </span>
+</code></pre></div>
+
+
+<p>You're good :) Thansk Luis.</p>
+
+<p>PS : often Rails need to update some gem, but it you want to keep some special gem (like this sqlite3), don't use <code>bundle update</code> but <code>bundle update --local</code> and install manually missing gem.</p>
+
+  <div class="pull"></div>
+  <a  href="https://twitter.com/share" class="twitter-share-button"
+data-via="iTraz" data-lang="en" data-size="large">Tweet</a>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,"script","twitter-wjs");
+</script>
+
+  <hr>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'traz';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</section>
+
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2">
+            <a href="https://twitter.com/iTraz">
+              <i class="icon icon-twitter icon-4x"></i>
+              <div>Follow me on Twitter.</div>
+            </a>
+          </div>
+          <div class="span2"></div>
+          <div class="span2 next">
+            <a href="https://github.com/Traz">
+              <i class="icon icon-github icon-4x"></i>
+              <div>
+                See my github profile.
+              </div>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35208058-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+
+</body>
+
+</html>

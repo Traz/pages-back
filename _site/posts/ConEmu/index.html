@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <title>ConEmu</title>
+
+  <meta name="author" content="Traz" />
+  <meta name="description" content="Small notes about Rails and Ruby" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="alternate" type="application/rss+xml" href="/atom.xml" />
+
+  <link href="/css/up.css" rel="stylesheet">
+  <link href="/css/pygments.css" rel="stylesheet">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300'
+  rel='stylesheet' type='text/css'>
+
+  <!--[if lt IE 9]>
+  <link href="/css/font-awesome-ie7.css" rel="stylesheet">
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+
+  
+</head>
+
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="/">Traz's notes</a>
+        <ul class="nav">
+          <li><a href="/about.html">About</a></li>
+          <li><a href="/tags.html">Tags</a></li>
+        </ul>
+        <ul class="nav pull-right">
+          <li>
+            <a href="/atom.xml" title="Atom Feed">
+              <i class="icon-rss icon-large"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <section class="content">
+  <h1>
+    <a href="/posts/ConEmu">ConEmu</a>
+    <small><a href="/tag/conemu.html">conemu</a>, <a href="/tag/shell.html">shell</a></small>
+  </h1>
+
+  <section class="byline">
+    March 25, 2013
+  </section>
+
+  <h3>Console2 reboot</h3>
+
+<p>I've used for long time the very good <a href="http://sourceforge.net/projects/console/">Console2</a>. But i've discovered last month a russian programmer who has build some really good stuff !</p>
+
+<p>So first, go to <a href="http://code.google.com/p/conemu-maximus5/">ConEmu</a> and install it (pick the dev build, it has some good new features and work well !)</p>
+
+<h3>ConEmu basic configuration</h3>
+
+<p>ConEmu can be fine tuned with a lot of configuration possibility. In the setting :</p>
+
+<ul>
+<li>Main / Appearance : check the <em>quake style</em> and <em>auto hide on focus</em> for having a nice pop up console, check <em>enhance progressbars</em> for auto hidding progressbars</li>
+<li>Features : check <em>inject conemu</em> and <em>ansi xterm 256 colors</em> for highlighting mode</li>
+<li>Keys &amp; Macro / Mark &amp; Paste : check all the box from the <em>select text with mouse</em> and select the <em>paste</em> action for the right button (mode <em>auto</em>).</li>
+</ul>
+
+
+<p>Move arround and test !</p>
+
+<h3>ConEmu Task</h3>
+
+<p>You can define multiple standard task in <em>startup/tasks</em>.</p>
+
+<p>I've created a first simple :</p>
+
+<ul>
+<li>taskname : start</li>
+<li>task parameters :</li>
+<li>command : <code>cmd -new_console:d:C:\Dev\home</code></li>
+</ul>
+
+
+<p>It's the most important part. The format of the macro command is :</p>
+
+<pre><code>program-name -new_console:options-console parameter-for-the-program
+</code></pre>
+
+<p>Take a look at the about box for remenber the options :</p>
+
+<pre><code>-new_console[:switches]
+  or
+-cur_console[:switches]
+   a - RunAs shell verb (as Admin on Vista+, login/passw in Win2k and WinXP)
+   b - Create background tab
+   c - force enable 'Press Enter or Esc to close console' (default)
+   d:&lt;dir&gt; - specify working directory, MUST BE LAST or single OPTION
+   h&lt;height&gt; - i.e., h0 - turn buffer off, h9999 - switch to 9999 lines
+   i - don't inject ConEmuHk into starting process
+   n - disable 'Press Enter or Esc to close console'
+   o - don't enable 'Long console output' when starting command from Far Manager
+   r - run as restricted user
+   s[&lt;SplitTab&gt;T][&lt;Percents&gt;](H|V) - run new console in a split
+   t:tabname - rename new created tab, MUST BE LAST or signle OPTION
+   u - ConEmu choose user dialog
+   u:&lt;user&gt;:&lt;pwd&gt; - specify user/pwd in args, MUST BE LAST or signle OPTION
+</code></pre>
+
+<h3>Simples examples</h3>
+
+<p>Just add a task with : <code>cmd</code> in the third input ('commands ...') with a title (first input). You can now lanch a DOS shell simply.</p>
+
+<p>Next step : launch  the bash shell (sh.exe is en the PATH) : <code>sh -login -i</code>.</p>
+
+<p>And for a Git shell (not in my path) : <code>c:\dev\git\bin\sh.exe -login -i</code></p>
+
+<p>If you want to specify the starting directory, you have to use the -new_console switch : <code>c:\dev\git\bin\sh.exe -cur_console:d:C:\www\github\ -login -i</code> for example.</p>
+
+<h3>Starting a batch file in a new console</h3>
+
+<p>Depending on each program, for bash it's the swith <code>-c</code>.
+So, assume i want to launch a Ruby pry console from the bash shell : <code>sh -new_console:d:C:\www -l -i -c "pry"</code>.
+You can do the same for a rails console, a rails server, a jekyll server ...</p>
+
+<h3>Launch several windowed consoles</h3>
+
+<pre><code>&gt;c:\dev\git\bin\sh.exe -cur_console:d:C:\www\github\traz.github.com -login -i
+sh.exe -cur_console:s1TH:d:C:\www\github\traz.github.com -login -i -c "jekyll serve"
+</code></pre>
+
+<p>On the first line, I launch a git bash shell (whith full route besause it's not in my PATH) with option -login -i, with a starting directory specified (:d switch)</p>
+
+<p>On the second line, I launch the Jekyll local server and with the switch <code>s1TH</code> for (s)eparing the current (1)st one console in 2 (H)orizontal windows.</p>
+
+<p>The <code>&gt;</code> caracter select which console is active.</p>
+
+<p>So when the task is launch, I've got my Git shell and my local server up.</p>
+
+<p>Another example with Rails :</p>
+
+<pre><code>&gt;sh -cur_console:d:C:\www\red -l -i -c "rails console"
+c:\dev\git\bin\sh.exe -cur_console:s1TH:d:C:\www\red -login -i
+sh -cur_console:s2TV:d:C:\www\red -login -i -c "rails server"
+</code></pre>
+
+<p>In this one, I've a got a PRY rails console (check the 'pry-rails' gem in gemfile), a Git shell, and the rails server up.</p>
+
+<h3>Attach &amp; Inside ...</h3>
+
+<p>Lasts words : You can attach a program in ConEmu ... try it, it's surprising on the first time :) But it extend the tasks possibilities :</p>
+
+<p>Now in a new task, just put <code>"C:\Program Files\Sublime Text 2\sublime_text.exe"</code> ... and Yes ! you've got Sublime Text IN a tab console, working perfectly :) ... you can test with other programs :)</p>
+
+<p>And for finish, you can do (it's a testing feature I assume, there some nasty behaviours) the exact oposite : integrate ConEmu in a Windows Explorer ! First, register ConEmu in the Explorer context menu (it's in tab Features / Integration in ConEmu), and second, right click in the explorer on ConMenu Inside :)</p>
+
+<p><strong>A big thanks again to the programmer of ConEmu !!!</strong></p>
+
+<p>Additionals informations : check :</p>
+
+<ul>
+<li><a href="http://code.google.com/p/conemu-maximus5/">http://code.google.com/p/conemu-maximus5/</a></li>
+<li><a href="http://superuser.com/questions/tagged/conemu">http://superuser.com/questions/tagged/conemu</a></li>
+<li><a href="http://stackoverflow.com/questions/tagged/conemu">http://stackoverflow.com/questions/tagged/conemu</a></li>
+</ul>
+
+
+  <div class="pull"></div>
+  <a  href="https://twitter.com/share" class="twitter-share-button"
+data-via="iTraz" data-lang="en" data-size="large">Tweet</a>
+<script>
+!function(d,s,id){
+  var js,fjs=d.getElementsByTagName(s)[0];
+  if(!d.getElementById(id)){
+    js=d.createElement(s);
+    js.id=id;
+    js.src="//platform.twitter.com/widgets.js";
+    fjs.parentNode.insertBefore(js,fjs);
+  }
+}(document,"script","twitter-wjs");
+</script>
+
+  <hr>
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'traz';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+</section>
+
+  </div>
+
+  <div id="footer">
+    <section class="meta">
+      <div class="container">
+        <div class="row">
+          <div class="span3"></div>
+          <div class="span2">
+            <a href="https://twitter.com/iTraz">
+              <i class="icon icon-twitter icon-4x"></i>
+              <div>Follow me on Twitter.</div>
+            </a>
+          </div>
+          <div class="span2"></div>
+          <div class="span2 next">
+            <a href="https://github.com/Traz">
+              <i class="icon icon-github icon-4x"></i>
+              <div>
+                See my github profile.
+              </div>
+            </a>
+          </div>
+          <div class="span3"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<script type="text/javascript">
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-35208058-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
+</script>
+
+
+</body>
+
+</html>

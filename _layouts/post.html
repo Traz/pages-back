@@ -1,0 +1,20 @@
+---
+layout: layout
+---
+
+<section class="content">
+  <h1>
+    <a href="{{ page.url }}">{{ page.title }}</a>
+    <small>{{ page | tags }}</small>
+  </h1>
+
+  <section class="byline">
+    {{ page.date | date: "%B %e, %Y" }}
+  </section>
+
+  {{ content }}
+  <div class="pull"></div>
+  {% include twitter.html %}
+  <hr>
+  {% include disqus.html %}
+</section>

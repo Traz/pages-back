@@ -1,0 +1,29 @@
+---
+layout: layout
+title: "Posts"
+---
+
+<section class="content">
+  <h1 class="thin">POSTS</h1>
+  <ul class="listing">
+    {% for p in site.posts %}
+    <li>
+      
+
+      <span>{{ p.date | date: "%B %e, %Y" }}</span> 
+      <a href="{{ p.url }}">{{ p.title }}</a>
+      <p>{% if p.tags != empty %}
+        <span style="float:left">
+          <small>
+            {{ p | tags }}.
+          </small>
+        </span>
+          {% endif %}
+      </p>
+    </li>
+    {% endfor %}
+  </ul>
+</section>
+<div id="tag-cloud"><h4><small>
+  {{ site | tag_cloud }}
+</small></h4></div>
